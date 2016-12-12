@@ -130,6 +130,7 @@ $addSelected = true;
 				<option value="url"><?php echo t('Web Address')?></option>
 				<option value="date"><?php echo t('Date Field')?></option>
 				<option value="datetime"><?php echo t('DateTime Field')?></option>
+				<option value="addresspicker"><?php echo t('Address picker')?></option>
 			</select>
 		</div>
 		
@@ -217,6 +218,7 @@ $addSelected = true;
 					<option value="url"><?php echo t('Web Address')?></option>
 					<option value="date"><?php echo t('Date Field')?></option>
 					<option value="datetime"><?php echo t('DateTime Field')?></option>
+					<option value="addresspicker"><?php echo t('Address picker')?></option>
 				</select>
 			</div>
 
@@ -302,6 +304,8 @@ $addSelected = true;
 		text-align: right;
 	}
 </style>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <script type="text/javascript">
 //safari was loading the auto.js too late. This ensures it's initialized

@@ -524,6 +524,9 @@ class Controller extends BlockController
                 } elseif ($row['inputType'] == 'telephone') {
                     $answerLong = "";
                     $answer = $txt->sanitize($_POST['Question'.$row['msqID']]);
+                } elseif  ($row['inputType'] == 'addresspicker'){
+                    $answerLong = $txt->sanitize($_POST['Question'.$row['msqID'].'_ln']);
+                    $answer = $txt->sanitize($_POST['Question'.$row['msqID'].'_lat']).' ,'.$txt->sanitize($_POST['Question'.$row['msqID'].'_long']);
                 } else {
                     $answerLong = "";
                     $answer = $txt->sanitize($_POST['Question'.$row['msqID']]);

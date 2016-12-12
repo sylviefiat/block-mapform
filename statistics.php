@@ -1,5 +1,5 @@
 <?php
-namespace Concrete\Block\Form;
+namespace Application\Block\Mapform;
 
 use Loader;
 use Core;
@@ -50,7 +50,7 @@ class Statistics
             $where = ' where created <= ?';
             $q[] = $toDate;
         }
-        $count = Loader::db()->GetOne('select count(asID) from btFormAnswerSet' . $where, $q);
+        $count = Loader::db()->GetOne('select count(asID) from btMapformAnswerSet' . $where, $q);
 
         return empty($count) ? 0 : intval($count);
     }
@@ -84,7 +84,7 @@ class Statistics
         }
 
         //get answers sets
-        $sql = 'SELECT * FROM btFormAnswerSet AS aSet ' .
+        $sql = 'SELECT * FROM btMapformAnswerSet AS aSet ' .
             'WHERE aSet.questionSetId=' . $questionSet . ' ORDER BY ' . $orderBySQL . ' ' . $limit;
         $answerSetsRS = $db->query($sql);
         //load answers into a nicer multi-dimensional array
@@ -97,7 +97,7 @@ class Statistics
         }
 
         //get answers
-        $sql = 'SELECT * FROM btFormAnswers AS a WHERE a.asID IN (' . join(',', $answerSetIds) . ')';
+        $sql = 'SELECT * FROM btMapformAnswers AS a WHERE a.asID IN (' . join(',', $answerSetIds) . ')';
         $answersRS = $db->query($sql);
 
         //load answers into a nicer multi-dimensional array

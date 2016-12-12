@@ -3,7 +3,7 @@
  * DESIGNERS: SCROLL DOWN! (IGNORE ALL THIS STUFF AT THE TOP)
  ************************************************************/
 defined('C5_EXECUTE') or die("Access Denied.");
-use \Concrete\Block\Form\MiniSurvey;
+use \Application\Block\Mapform\MiniSurvey;
 
 $survey = $controller;
 $miniSurvey = new MiniSurvey($b);
@@ -12,7 +12,7 @@ $miniSurvey->frontEndMode = true;
 //Clean up variables from controller so html is easier to work with...
 $bID = intval($bID);
 $qsID = intval($survey->questionSetId);
-$formAction = $view->action('submit_form').'#formblock'.$bID;
+$formAction = $view->action('submit_form').'#mapformblock'.$bID;
 
 $questionsRS = $miniSurvey->loadQuestions($qsID, $bID);
 $questions = array();
@@ -51,7 +51,7 @@ if (isset($invalidIP) && $invalidIP) {
 }
 $errorDivs = '';
 foreach ($errors as $error) {
-	$errorDivs .= '<div class="error">'.$error."</div>\n"; //It's okay for this one thing to have the html here -- it can be identified in CSS via parent wrapper div (e.g. '.formblock .error')
+	$errorDivs .= '<div class="error">'.$error."</div>\n"; //It's okay for this one thing to have the html here -- it can be identified in CSS via parent wrapper div (e.g. '.mapformblock .error')
 }
 
 //Prep captcha
@@ -59,10 +59,10 @@ $surveyBlockInfo = $miniSurvey->getMiniSurveyBlockInfoByQuestionId($qsID, $bID);
 $captcha = $surveyBlockInfo['displayCaptcha'] ? Loader::helper('validation/captcha') : false;
 
 /******************************************************************************
-* DESIGNERS: CUSTOMIZE THE FORM HTML STARTING HERE...
+* DESIGNERS: CUSTOMIZE THE MAP FORM HTML STARTING HERE...
 */?>
 
-<div id="formblock<?php  echo $bID; ?>" class="ccm-block-type-form">
+<div id="mapformblock<?php  echo $bID; ?>" class="ccm-block-type-form">
 <form enctype="multipart/form-data" class="form-stacked miniSurveyView" id="miniSurveyView<?php  echo $bID; ?>" method="post" action="<?php  echo $formAction ?>">
 
 	<?php  if ($success): ?>
@@ -120,4 +120,4 @@ $captcha = $surveyBlockInfo['displayCaptcha'] ? Loader::helper('validation/captc
 	<input name="pURI" type="hidden" value="<?php  echo isset($pURI) ? $pURI : ''; ?>" />
 	
 </form>
-</div><!-- .formblock -->
+</div><!-- .mapformblock -->

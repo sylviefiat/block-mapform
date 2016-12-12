@@ -1,6 +1,6 @@
 var miniSurvey = {
     bid: 0,
-    serviceURL: $("input[name=miniSurveyServices]").val() + '?block=form&',
+    serviceURL: $("input[name=miniSurveyServices]").val() + '?block=mapform&',
     init: function () {
         this.tabSetup();
 

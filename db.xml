@@ -3,7 +3,7 @@
   xmlns="http://www.concrete5.org/doctrine-xml/0.5"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.concrete5.org/doctrine-xml/0.5 http://concrete5.github.io/doctrine-xml/doctrine-xml-0.5.xsd">
 
-  <table name="btForm">
+  <table name="btMapform">
     <field name="bID" type="integer">
       <unsigned/>
       <key/>
@@ -37,7 +37,7 @@
     </index>
   </table>
 
-  <table name="btFormQuestions">
+  <table name="btMapformQuestions">
     <field name="qID" type="integer">
       <unsigned/>
       <autoincrement/>
@@ -88,7 +88,7 @@
     </index>
   </table>
 
-  <table name="btFormAnswerSet">
+  <table name="btMapformAnswerSet">
     <field name="asID" type="integer">
       <unsigned/>
       <autoincrement/>
@@ -113,7 +113,7 @@
     </index>
   </table>
 
-  <table name="btFormAnswers">
+  <table name="btMapformAnswers">
     <field name="aID" type="integer">
       <unsigned/>
       <autoincrement/>
